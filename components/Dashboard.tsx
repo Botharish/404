@@ -6,6 +6,7 @@ import {
   ArrowRight,
   BarChart3,
   BookOpen,
+  Building2,
   CalendarCheck2,
   CheckCircle2,
   ClipboardList,
@@ -20,6 +21,7 @@ import {
   type LucideIcon
 } from "lucide-react";
 import AttendanceAdvisor from "@/components/AttendanceAdvisor";
+import RoomFinder from "@/components/RoomFinder";
 import AttendanceCard from "@/components/AttendanceCard";
 import AttendanceCharts from "@/components/AttendanceCharts";
 import LeaveSimulator from "@/components/LeaveSimulator";
@@ -39,12 +41,13 @@ const navItems: NavItem[] = [
   { id: "overview", label: "Overview", icon: LayoutDashboard, href: "/check-attendance" },
   { id: "charts", label: "Charts", icon: BarChart3, href: "/check-attendance/charts" },
   { id: "leave", label: "Leave planner", icon: ClipboardList, href: "/check-attendance/leave" },
-  { id: "subjects", label: "Subjects", icon: BookOpen, href: "/check-attendance/subjects" }
+  { id: "subjects", label: "Subjects", icon: BookOpen, href: "/check-attendance/subjects" },
+  { id: "rooms", label: "Room finder", icon: Building2, href: "/check-attendance/rooms" }
 ];
 
 type DashboardProps = {
   mode?: "landing" | "dashboard";
-  page?: "overview" | "charts-health" | "charts-comparison" | "leave" | "what-if" | "subjects";
+  page?: "overview" | "charts-health" | "charts-comparison" | "leave" | "what-if" | "subjects" | "rooms";
 };
 
 export default function Dashboard({ mode = "landing", page = "overview" }: DashboardProps) {
@@ -219,8 +222,8 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
         sidebarCollapsed ? "lg:grid-cols-[88px_minmax(0,1fr)]" : "lg:grid-cols-[260px_minmax(0,1fr)]"
       }`}>
         <aside className="hidden border-r border-slate-200 bg-white lg:block">
-          <div className="sticky top-0 flex h-screen flex-col px-5 py-6">
-            <div className="flex items-start justify-between gap-2">
+          <div className="sticky top-0 flex h-screen flex-col overflow-y-auto px-4 py-6">
+            <div className={`flex gap-3 ${sidebarCollapsed ? "flex-col items-center" : "items-start justify-between"}`}>
               <Link href="/" className="flex min-w-0 items-center gap-3">
                 <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-slate-950 text-white">
                   <CalendarCheck2 size={20} />
@@ -235,13 +238,16 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
               <button
                 type="button"
                 aria-label={sidebarCollapsed ? "Expand sidebar" : "Minimize sidebar"}
+                title={sidebarCollapsed ? "Expand sidebar" : "Minimize sidebar"}
+                aria-expanded={!sidebarCollapsed}
                 onClick={() => setSidebarCollapsed((value) => !value)}
                 className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:bg-slate-50 hover:text-slate-950"
               >
                 {sidebarCollapsed ? <ChevronsRight size={17} /> : <ChevronsLeft size={17} />}
               </button>
             </div>
-            <nav className="mt-8 grid gap-1 text-sm font-medium">
+            {!sidebarCollapsed && <p className="mt-8 px-3 text-xs font-semibold uppercase text-slate-400">Workspace</p>}
+            <nav aria-label="Main navigation" className="mt-3 grid gap-1.5 text-sm font-medium">
               {navItems.map(({ id, label, icon: Icon, href }) => (
                 <Link
                   key={id}
@@ -250,7 +256,7 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
                     sidebarCollapsed ? "justify-center" : "gap-3"
                   } ${
                     (id === "charts" ? page === "charts-health" || page === "charts-comparison" : page === id)
-                      ? "bg-slate-950 text-white"
+                      ? "bg-slate-950 text-white shadow-sm ring-1 ring-slate-950"
                       : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
                   }`}
                   href={href}
@@ -272,7 +278,7 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
               </button>
             </nav>
             {!sidebarCollapsed ? (
-            <div className="mt-auto rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <div className="mt-auto border-t border-slate-200 px-3 pt-5">
               <div className="flex items-center gap-2 text-sm font-semibold text-slate-900">
                 <ShieldCheck size={17} />
                 75% guardrail
@@ -342,12 +348,13 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
             <header className="flex items-start justify-between gap-4 border-b border-slate-200 pb-6">
               <div className="min-w-0">
                 <p className="text-sm font-medium text-slate-500">Dashboard</p>
-                <h1 className="mt-1 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Attendance Predictor</h1>
-                <p className="mt-2 text-base text-slate-500">Know before you miss. Plan attendance with clean, subject-wise forecasts.</p>
+                <h1 className="mt-1 text-3xl font-semibold text-slate-950 sm:text-4xl">{page === "rooms" ? "Room Finder" : "Attendance Predictor"}</h1>
+                <p className="mt-2 text-base text-slate-500">{page === "rooms" ? "Find a free room for your next study session." : "Know before you miss. Plan attendance with clean, subject-wise forecasts."}</p>
               </div>
             </header>
 
             <div className="grid gap-6 py-6">
+              {page === "rooms" ? <RoomFinder /> : null}
               {page === "overview" ? (
               <div className="grid gap-6">
                 <div className="grid gap-6 xl:grid-cols-2">

@@ -1,0 +1,49 @@
+{
+  "description": "Manually transcribed from all 13 rendered pages of the 10 supplied PDFs. Period numbers preserve each source's own bell times.",
+  "current": [
+    {"file":"II BME.pdf","section":"II BME","home":"IST-602","homePeriods":[[1,2,3,4],[1,2,3,4],[1,2,3],[1,2,3,4],[1,2,3,4]],"other":[[1,[6,7],["IST-107","IST-309"],"DLMS / EEC lab"],[2,[6,7],["TB-106"],"Verbal Reasoning"],[3,[6],["TB-106"],"Verbal Reasoning"],[3,[7],["IST-602"],"Universal Human Values"],[4,[8,9],["IST-107","IST-309"],"DLMS / EEC lab"],[5,[8,9],["IST-602"],"Universal Human Values"]]},
+    {"file":"II ECE DS A.pdf","section":"II ECE DS A","home":"IST-416","homePeriods":[[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4]],"other":[[1,[6,7],["IST-602"],"Universal Human Values"],[1,[8,9],["IST-309","IST-107"],"Devices and Digital IC lab"],[2,[6],["IST-602"],"Universal Human Values"],[2,[8,9],["TB-106"],"Verbal Reasoning"],[3,[7],["TB-106"],"Verbal Reasoning"],[4,[6,7],["IST-309","IST-107"],"Devices and Digital IC lab"]]},
+    {"file":"II ECE DS B.pdf","section":"II ECE DS B","home":"IST-411","homePeriods":[[6,7,8,9],[6,7,8,9],[6,7,8,9],[6,7,8,9],[6,7,8,9]],"other":[[1,[3,4],["IST-309","IST-107"],"Devices and Digital IC lab"],[2,[1,2],["IST-309","IST-107"],"Devices and Digital IC lab"],[3,[1],["IST-401"],"Universal Human Values"],[4,[1,2],["IST-401"],"Universal Human Values"],[4,[3,4],["TB-106"],"Verbal Reasoning"],[5,[1],["TB-106"],"Verbal Reasoning"]]},
+    {"file":"III BME.pdf","section":"III BME","home":"IST-211","homePeriods":[[6,7,8,9],[6,7,8,9],[6,7,8,9],[6,7,8,9],[6,7,8,9]],"other":[[1,[1,2],["IST-625"],"Analytical and Logical Thinking"],[1,[3,4],["IST-107"],"MPMC lab"],[2,[1,2],["IST-108"],"Bio DSP lab"],[2,[3],["IST-625"],"Analytical and Logical Thinking"],[4,[4],["IST-108"],"Community Connect"],[5,[1],["IST-108"],"Community Connect"]]},
+    {"file":"III ECE A.pdf","section":"III ECE A","home":"IST-518","homePeriods":[[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4]],"other":[[1,[6,7],["IST-625"],"Analytical and Logical Thinking"],[2,[7],["IST-625"],"Analytical and Logical Thinking"],[3,[8,9],["IST-108","IST-309"],"VLSI / Microprocessor lab"],[5,[6,7],["IST-108","IST-309"],"VLSI / Microprocessor lab"]]},
+    {"file":"III ECE B.pdf","section":"III ECE B","home":"IST-518","homePeriods":[[6,7,8,9],[6,7,8,9],[6,7,8,9],[6,7,8,9],[6,7,8,9]],"other":[[1,[1,2],["IST-108","IST-309"],"VLSI / Microprocessor lab"],[2,[1,2],["IST-625"],"Analytical and Logical Thinking"],[3,[1],["IST-625"],"Analytical and Logical Thinking"],[4,[1,2],["IST-108","IST-309"],"VLSI / Microprocessor lab"]]},
+    {"file":"III ECE DS.pdf","section":"III ECE DS","home":"IST-519","homePeriods":[[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4]],"other":[[2,[6,7],["IST-108","IST-107"],"VLSI / Microprocessor lab"],[3,[8,9],["IST-625"],"Analytical and Logical Thinking"],[5,[6],["IST-625"],"Analytical and Logical Thinking"],[5,[8,9],["IST-108","IST-107"],"VLSI / Microprocessor lab"]]},
+    {"file":"IV ECE A.pdf","section":"IV ECE A","home":"IST-225","homePeriods":[[1,3,4],[1,2,3,4],[1,3,4],[1,2,3,4],[1,2,3,4]],"other":[[3,[2],["IST-108"],"Computer Communication and Network Security lab"]]},
+    {"file":"IV ECE B.pdf","section":"IV ECE B","home":"IST-227","homePeriods":[[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,4],[1,2,3]],"other":[[4,[3],["IST-108"],"Computer Communication and Network Security lab"]]}
+  ],
+  "archived": {
+    "file": "I year Time Table SEEE.pdf",
+    "academicYear": "2024-25",
+    "reason": "Pages 1-2 say odd semester and pages 3-4 say even semester; exact validity dates are absent. Not applied to the 2026-27 calendar.",
+    "sections": [
+      {"page":1,"section":"I ECE A","rows":[
+        [1,[[1,2,3,4],["IST-602"]],[[6,7],[],"Chemistry lab; room not stated"],[[8,9],["IST-710"]]],
+        [2,[[1,2,3,4],["IST-602"]],[[6,7,8,9],["IST-020","IST-021"],"Workshop"]],
+        [3,[[1,2,3],["IST-602"]],[[6,7],["IST-618"],"PPS lab"],[[8,9],["IST-108"],"PCB lab"]],
+        [4,[[1,2,3,4],["IST-602"]],[[6,7],["IST-510"]],[[8,9],["IST-201"],"NSS"]],
+        [5,[[1,2,3,4,6],["IST-602"]],[[7,8,9],["IST-626"]]]
+      ]},
+      {"page":2,"section":"I ECE B / EEE","rows":[
+        [1,[[1],["IST-609"]],[[2],["IST-710","IST-520"],"Split class"],[[3,4],[],"Chemistry lab; room not stated"],[[6,7,8,9],["IST-602"]]],
+        [2,[[1,2,3,4],["IST-020","IST-021"],"Workshop"],[[6,7,8,9],["IST-602"]]],
+        [3,[[1],["IST-710","IST-520"],"Split class"],[[2],["IST-617"],"PPS lab"],[[3,4],["IST-510"]],[[5],["IST-618"],"PPS lab"],[[7,8,9],["IST-602"]]],
+        [4,[[1,2],["IST-201"]],[[3],["IST-626"]],[[4],["IST-710"]],[[6,7,8,9],["IST-602"]]],
+        [5,[[1,2],["IST-617"],"PCB / EC lab"],[[4,5,6],["IST-626"]],[[8,9],["IST-602"]]]
+      ]},
+      {"page":3,"section":"I ECE DS","rows":[
+        [1,[[1],["IST-710"]],[[2],[],"CDC; room not stated"],[[3,4],["IST-617"],"PCB lab"],[[6,7,8,9],["IST-502"]]],
+        [2,[[1,2],[],"Chemistry lab; room not stated"],[[3,4],["IST-201"]],[[6,7,8,9],["IST-502"]]],
+        [3,[[1,2],["IST-510"]],[[3],["IST-710"]],[[5,6],["IST-617"],"PPS lab"],[[7,8,9],["IST-502"]]],
+        [4,[[1,3],["IST-710"]],[[2],["IST-510"]],[[4,5,6,8,9],["IST-502"]]],
+        [5,[[1,2,3],["IST-626"]],[[4],[],"Faint PPS lab entry; venue unconfirmed"],[[6,7,8,9],["IST-020","IST-021"],"Workshop"]]
+      ]},
+      {"page":4,"section":"I Biotech B / Biomedical Engineering","rows":[
+        [1,[[1],["IST-520"]],[[2,3],[],"Yoga; venue not stated"],[[4],["IST-710","IST-520"],"Split class"],[[6,7,8,9],["IST-702"]]],
+        [2,[[1,2,4],["IST-710"]],[[3],["IST-520"]],[[7,8,9],["IST-702"]]],
+        [3,[[1,2,3,4],["IST-020","IST-021"],"Workshop"],[[6,7,8,9],["IST-702"]]],
+        [4,[[1,2],[],"Chemistry lab; room not stated"],[[3],["IST-710"]],[[4],["IST-510","IST-520"],"Split class"],[[6,7,8,9],["IST-702"]]],
+        [5,[[1,2,3,4,5,6],["IST-702"]],[[8,9],[],"PPS lab; venue not stated"]]
+      ]}
+    ]
+  }
+}

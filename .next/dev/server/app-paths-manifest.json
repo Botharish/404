@@ -1,7 +1,8 @@
 {
-  "/check-attendance/charts/page": "app/check-attendance/charts/page.js",
-  "/check-attendance/subjects/page": "app/check-attendance/subjects/page.js",
+  "/api/rooms/route": "app/api/rooms/route.js",
   "/check-attendance/page": "app/check-attendance/page.js",
   "/check-attendance/charts/comparison/page": "app/check-attendance/charts/comparison/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/check-attendance/rooms/page": "app/check-attendance/rooms/page.js",
+  "/check-attendance/charts/page": "app/check-attendance/charts/page.js"
 }

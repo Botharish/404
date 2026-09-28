@@ -1,0 +1,16 @@
+{
+  "validFrom": "2026-08-29",
+  "validTo": "2026-11-29",
+  "opens": "09:00",
+  "closes": "17:00",
+  "closedDates": [],
+  "rooms": [{
+    "id": "REPLACE-WITH-ROOM-ID",
+    "name": "Example room - replace before use",
+    "floor": 0,
+    "capacity": 30,
+    "ac": true,
+    "scheduleComplete": false,
+    "bookings": [{ "day": 1, "start": "09:00", "end": "09:50", "section": "Replace with section name" }]
+  }]
+}

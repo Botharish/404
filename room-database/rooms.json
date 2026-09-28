@@ -1,0 +1,2611 @@
+{
+  "validFrom": "2026-08-29",
+  "validTo": "2026-11-29",
+  "opens": "09:00",
+  "closes": "16:50",
+  "teachingDays": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "closedDates": [],
+  "notes": [
+    "9 current PDFs imported; the 4-page first-year PDF is labelled 2024-25 and remains archived.",
+    "Floor numbers are inferred from room codes and need campus confirmation. AC and seating capacity were not provided.",
+    "Availability uses the app's semester dates (29 Aug-29 Nov 2026) and the PDFs' teaching hours, not confirmed building access hours. Holidays and special bookings were not supplied.",
+    "Room use is based only on the supplied timetables. Shared-room sections are combined; both rooms in a split lab entry are blocked. Unprefixed lab and CDC room numbers are treated as IST; TB-106 remains a separate building."
+  ],
+  "sources": [
+    {
+      "file": "II BME.pdf",
+      "sha256": "150388d8113820ae1a13b0f2bb1ea61002d6add7c3836c90b58b3d9b15d72d19",
+      "pages": 1,
+      "status": "imported",
+      "note": "II BME - odd semester 2026-27"
+    },
+    {
+      "file": "II ECE DS A.pdf",
+      "sha256": "cfb78a9a2a3085dad1010a7a46ab2916c5505a6073281d2ed21fb0215035690e",
+      "pages": 1,
+      "status": "imported",
+      "note": "II ECE DS A - odd semester 2026-27"
+    },
+    {
+      "file": "II ECE DS B.pdf",
+      "sha256": "177cfeb7e2e7bcbcdc248f1eac094317bb2fa42d4fbbc1b48e8695d61eab3446",
+      "pages": 1,
+      "status": "imported",
+      "note": "II ECE DS B - odd semester 2026-27"
+    },
+    {
+      "file": "III BME.pdf",
+      "sha256": "9e22836c5b4b7524dab3206e662476a912acdcb56c2714e9146efd2026d616e7",
+      "pages": 1,
+      "status": "imported",
+      "note": "III BME - odd semester 2026-27"
+    },
+    {
+      "file": "III ECE A.pdf",
+      "sha256": "b00d64a1750e8722b8a8ab42a2fb6c6f25e844ed178f2095a7822e899f6d1c02",
+      "pages": 1,
+      "status": "imported",
+      "note": "III ECE A - odd semester 2026-27"
+    },
+    {
+      "file": "III ECE B.pdf",
+      "sha256": "42a2c41f35525fb87d4af90dafdcda05f010a123e602b16c5d164b91406b4a5c",
+      "pages": 1,
+      "status": "imported",
+      "note": "III ECE B - odd semester 2026-27"
+    },
+    {
+      "file": "III ECE DS.pdf",
+      "sha256": "3fdf73b38da850b6b5bdbb1d7506ded1e59a0e4de1aa9c2701054c95168d724c",
+      "pages": 1,
+      "status": "imported",
+      "note": "III ECE DS - odd semester 2026-27"
+    },
+    {
+      "file": "IV ECE A.pdf",
+      "sha256": "e68f47efef80b12c22e8166f3caa51ee844db533acdc6c9403a01631cd99e591",
+      "pages": 1,
+      "status": "imported",
+      "note": "IV ECE A - odd semester 2026-27"
+    },
+    {
+      "file": "IV ECE B.pdf",
+      "sha256": "e959faee6a75afaee1e52a9fc4b42ce327bb52506295effe7e7e77d23c3968c2",
+      "pages": 1,
+      "status": "imported",
+      "note": "IV ECE B - odd semester 2026-27"
+    },
+    {
+      "file": "I year Time Table SEEE.pdf",
+      "sha256": "569dddce1299e0795d37f871a4380f19ff52c2b8240e80c77daf4bb170da8764",
+      "pages": 4,
+      "status": "archived",
+      "note": "Pages 1-2 say odd semester and pages 3-4 say even semester; exact validity dates are absent. Not applied to the 2026-27 calendar."
+    }
+  ],
+  "rooms": [
+    {
+      "id": "IST-107",
+      "name": "IST 107",
+      "floor": 1,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II ECE DS B",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III BME",
+          "activity": "MPMC lab",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II ECE DS B",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III BME",
+          "activity": "MPMC lab",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II BME",
+          "activity": "DLMS / EEC lab (both listed venues blocked)",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II BME",
+          "activity": "DLMS / EEC lab (both listed venues blocked)",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "II ECE DS A",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "II ECE DS A",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II ECE DS B",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II ECE DS B",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III ECE DS",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III ECE DS",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II ECE DS A",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II ECE DS A",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "II BME",
+          "activity": "DLMS / EEC lab (both listed venues blocked)",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "II BME",
+          "activity": "DLMS / EEC lab (both listed venues blocked)",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III ECE DS",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III ECE DS",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-108",
+      "name": "IST 108",
+      "floor": 1,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE B",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE B",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III BME",
+          "activity": "Bio DSP lab",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III BME",
+          "activity": "Bio DSP lab",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III ECE DS",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III ECE DS",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "IV ECE A",
+          "activity": "Computer Communication and Network Security lab",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III ECE A",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III ECE A",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE B",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE B",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "IV ECE B",
+          "activity": "Computer Communication and Network Security lab",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III BME",
+          "activity": "Community Connect",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III BME",
+          "activity": "Community Connect",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III ECE A",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III ECE A",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III ECE DS",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III ECE DS",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "TB-106",
+      "name": "TB 106",
+      "floor": 1,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 2,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II BME",
+          "activity": "Verbal Reasoning",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II BME",
+          "activity": "Verbal Reasoning",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "II ECE DS A",
+          "activity": "Verbal Reasoning",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "II ECE DS A",
+          "activity": "Verbal Reasoning",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II BME",
+          "activity": "Verbal Reasoning",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II ECE DS A",
+          "activity": "Verbal Reasoning",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II ECE DS B",
+          "activity": "Verbal Reasoning",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II ECE DS B",
+          "activity": "Verbal Reasoning",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II ECE DS B",
+          "activity": "Verbal Reasoning",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-211",
+      "name": "IST 211",
+      "floor": 2,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III BME",
+          "activity": "Class / project",
+          "source": "III BME.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-225",
+      "name": "IST 225",
+      "floor": 2,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "IV ECE A",
+          "activity": "Class / project",
+          "source": "IV ECE A.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-227",
+      "name": "IST 227",
+      "floor": 2,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "IV ECE B",
+          "activity": "Class / project",
+          "source": "IV ECE B.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-309",
+      "name": "IST 309",
+      "floor": 3,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE B",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE B",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II ECE DS B",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II ECE DS B",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II BME",
+          "activity": "DLMS / EEC lab (both listed venues blocked)",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II BME",
+          "activity": "DLMS / EEC lab (both listed venues blocked)",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "II ECE DS A",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "II ECE DS A",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II ECE DS B",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II ECE DS B",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III ECE A",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III ECE A",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE B",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE B",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II ECE DS A",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II ECE DS A",
+          "activity": "Devices and Digital IC lab (both listed venues blocked)",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "II BME",
+          "activity": "DLMS / EEC lab (both listed venues blocked)",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "II BME",
+          "activity": "DLMS / EEC lab (both listed venues blocked)",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III ECE A",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III ECE A",
+          "activity": "VLSI / Microprocessor lab (both listed venues blocked)",
+          "source": "III ECE A.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-401",
+      "name": "IST 401",
+      "floor": 4,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 3,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II ECE DS B",
+          "activity": "Universal Human Values",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II ECE DS B",
+          "activity": "Universal Human Values",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II ECE DS B",
+          "activity": "Universal Human Values",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-411",
+      "name": "IST 411",
+      "floor": 4,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "II ECE DS B",
+          "activity": "Class / project",
+          "source": "II ECE DS B.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-416",
+      "name": "IST 416",
+      "floor": 4,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II ECE DS A",
+          "activity": "Class / project",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-518",
+      "name": "IST 518",
+      "floor": 5,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III ECE A",
+          "activity": "Class / project",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III ECE B",
+          "activity": "Class / project",
+          "source": "III ECE B.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-519",
+      "name": "IST 519",
+      "floor": 5,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "III ECE DS",
+          "activity": "Class / project",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-602",
+      "name": "IST 602",
+      "floor": 6,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II ECE DS A",
+          "activity": "Universal Human Values",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II ECE DS A",
+          "activity": "Universal Human Values",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "II ECE DS A",
+          "activity": "Universal Human Values",
+          "source": "II ECE DS A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "II BME",
+          "activity": "Universal Human Values",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 4,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "11:40",
+          "end": "12:30",
+          "section": "II BME",
+          "activity": "Class / project",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "II BME",
+          "activity": "Universal Human Values",
+          "source": "II BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "II BME",
+          "activity": "Universal Human Values",
+          "source": "II BME.pdf",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "IST-625",
+      "name": "IST 625",
+      "floor": 6,
+      "floorInferred": true,
+      "capacity": null,
+      "ac": null,
+      "scheduleComplete": true,
+      "notes": "Floor inferred from room number; AC and capacity are not specified in the PDFs.",
+      "bookings": [
+        {
+          "day": 1,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III BME",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III BME",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III ECE A",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 1,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III ECE A",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE B",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "09:50",
+          "end": "10:40",
+          "section": "III ECE B",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "10:50",
+          "end": "11:40",
+          "section": "III BME",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III BME.pdf",
+          "page": 1
+        },
+        {
+          "day": 2,
+          "start": "14:10",
+          "end": "15:00",
+          "section": "III ECE A",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III ECE A.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "09:00",
+          "end": "09:50",
+          "section": "III ECE B",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III ECE B.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "15:10",
+          "end": "16:00",
+          "section": "III ECE DS",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 3,
+          "start": "16:00",
+          "end": "16:50",
+          "section": "III ECE DS",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        },
+        {
+          "day": 5,
+          "start": "13:20",
+          "end": "14:10",
+          "section": "III ECE DS",
+          "activity": "Analytical and Logical Thinking",
+          "source": "III ECE DS.pdf",
+          "page": 1
+        }
+      ]
+    }
+  ]
+}

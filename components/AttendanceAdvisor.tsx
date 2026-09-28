@@ -5,6 +5,15 @@ import { Bot, MessageCircle, Send, X } from "lucide-react";
 import { Section } from "@/data/timetables";
 import { studentsForSection } from "@/data/students";
 import { buildSubjectSummaries, percent } from "@/lib/attendance";
+import type { RoomData } from "@/lib/rooms";
+import { answerRoomRequest, parseRoomRequest } from "@/lib/roomSearch";
+
+const ROOM_QUESTION = /\b(rooms?|classrooms?|labs?|hall|study space|place to study)\b/;
+const EACH_SUBJECT = /\b(each|every|all|per|subject[- ]?wise)\b.*\bsubjects?\b|\bsubjects?\b.*\b(each|every|all|wise|list)\b|\ball subjects\b/;
+const istDate = () =>
+  new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+const istTime = () =>
+  new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date());
 
 type Message = {
   role: "student" | "advisor";
@@ -27,7 +36,7 @@ export default function AttendanceAdvisor({ sections, currentDate, futureDate, o
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "advisor",
-      text: "Select your class and name, then ask about attendance, leave, 75%, 90%, or any subject."
+      text: "Select your class and name, then ask about attendance, leave, 75%, 90%, any subject, or a free room."
     }
   ]);
 
@@ -150,6 +159,14 @@ export default function AttendanceAdvisor({ sections, currentDate, futureDate, o
     const targetPercent = normalized.includes("90") ? 90 : 75;
     const target = subject ?? null;
 
+    if (!target && EACH_SUBJECT.test(normalized)) {
+      const lines = summaries.map(
+        (item) =>
+          `• ${item.subjectName}: ${item.currentPercent.toFixed(1)}% (${item.attended}/${item.conducted})${item.currentPercent < 75 ? " ⚠ below 75%" : ""}`
+      );
+      return `${selectedStudent?.name ?? "This student"} (${selectedSection?.name ?? "this class"}) — subject-wise attendance:\n${lines.join("\n")}\nOverall: ${overall.current.toFixed(1)}%.`;
+    }
+
     if (target && asksLeave && leaveCount) {
       const projection = leaveProjection(leaveCount, target);
       return `Final percentage: ${projection.finalPercent.toFixed(1)}% in ${target.subjectName}. ${targetLine(projection.finalPercent, 75)} ${
@@ -211,16 +228,38 @@ export default function AttendanceAdvisor({ sections, currentDate, futureDate, o
     return `${selectedStudent?.name ?? "This student"} has ${overall.current.toFixed(1)}% overall attendance. The weakest subject is ${weakest.subjectName} at ${weakest.currentPercent.toFixed(1)}%. Attend ${weakest.required75 > weakest.remaining ? "all possible classes and ask faculty for help" : `${weakest.required75} more classes`} there to protect 75%.`;
   }
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function answerRooms(question: string) {
+    const intent = parseRoomRequest(question, { date: istDate(), time: istTime(), duration: 60 });
+    if (intent.error) return intent.error;
+    try {
+      const response = await fetch("/api/rooms", { cache: "no-store" });
+      if (!response.ok) throw new Error();
+      const data: RoomData = await response.json();
+      if (data.errors.length || !data.datasets.length) {
+        return "Room data is not verified right now, so I can't confirm free rooms. Open the Room Finder page for details.";
+      }
+      return `${answerRoomRequest(data, intent).note} (Checked for ${intent.date}, IST.)`;
+    } catch {
+      return "I couldn't load room data. Please try again or open the Room Finder page.";
+    }
+  }
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const question = input.trim();
     if (!question) return;
+    setInput("");
+    if (ROOM_QUESTION.test(question.toLowerCase())) {
+      setMessages((previous) => [...previous, { role: "student", text: question }, { role: "advisor", text: "Checking rooms…" }]);
+      const reply = await answerRooms(question);
+      setMessages((previous) => [...previous.slice(0, -1), { role: "advisor", text: reply }]);
+      return;
+    }
     setMessages((previous) => [
       ...previous,
       { role: "student", text: question },
       { role: "advisor", text: answer(question) }
     ]);
-    setInput("");
   }
 
   return (
@@ -284,7 +323,7 @@ export default function AttendanceAdvisor({ sections, currentDate, futureDate, o
             {messages.map((message, index) => (
               <div
                 key={`${message.role}-${index}`}
-                className={`rounded-lg p-3 text-sm leading-6 ${
+                className={`whitespace-pre-line rounded-lg p-3 text-sm leading-6 ${
                   message.role === "student"
                     ? "ml-8 bg-blue-600 text-white"
                     : "mr-8 border border-slate-200 bg-slate-50 text-slate-700"
@@ -299,7 +338,7 @@ export default function AttendanceAdvisor({ sections, currentDate, futureDate, o
             <input
               value={input}
               onChange={(event) => setInput(event.target.value)}
-              placeholder="Ask: If I take 3 sick leave days..."
+              placeholder="Ask: % in each subject, or a free room now"
               className="h-11 min-w-0 flex-1 rounded-lg border border-slate-200 px-3 text-sm outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
             />
             <button className="grid h-11 w-11 place-items-center rounded-lg bg-slate-950 text-white hover:bg-slate-800">

@@ -6,7 +6,9 @@
   "/check-attendance/charts/page": "/check-attendance/charts",
   "/check-attendance/leave/page": "/check-attendance/leave",
   "/check-attendance/page": "/check-attendance",
+  "/check-attendance/rooms/page": "/check-attendance/rooms",
   "/check-attendance/subjects/page": "/check-attendance/subjects",
   "/check-attendance/what-if/page": "/check-attendance/what-if",
-  "/page": "/"
+  "/page": "/",
+  "/api/rooms/route": "/api/rooms"
 }

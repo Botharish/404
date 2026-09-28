@@ -42,6 +42,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/api/rooms",
+      "regex": "^/api/rooms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/rooms(?:/)?$"
+    },
+    {
       "page": "/check-attendance",
       "regex": "^/check\\-attendance(?:/)?$",
       "routeKeys": {},
@@ -70,6 +76,12 @@
       "regex": "^/check\\-attendance/leave(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/check\\-attendance/leave(?:/)?$"
+    },
+    {
+      "page": "/check-attendance/rooms",
+      "regex": "^/check\\-attendance/rooms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/check\\-attendance/rooms(?:/)?$"
     },
     {
       "page": "/check-attendance/subjects",
