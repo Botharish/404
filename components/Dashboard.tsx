@@ -265,17 +265,6 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
                   {!sidebarCollapsed ? label : null}
                 </Link>
               ))}
-              <button
-                type="button"
-                onClick={() => setAdvisorOpen(true)}
-                title={sidebarCollapsed ? "Advisor" : undefined}
-                className={`flex items-center rounded-lg px-3 py-2.5 text-left text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 ${
-                  sidebarCollapsed ? "justify-center" : "gap-3"
-                }`}
-              >
-                <MessageCircle size={18} />
-                {!sidebarCollapsed ? "Advisor" : null}
-              </button>
             </nav>
             {!sidebarCollapsed ? (
             <div className="mt-auto border-t border-slate-200 px-3 pt-5">
@@ -330,17 +319,6 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
                         {label}
                       </Link>
                     ))}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setAdvisorOpen(true);
-                      }}
-                      className="mt-1 flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-slate-700 hover:bg-slate-100"
-                    >
-                      <MessageCircle size={16} />
-                      Advisor
-                    </button>
                   </div>
                 ) : null}
               </div>

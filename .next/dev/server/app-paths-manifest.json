@@ -1,5 +1,4 @@
 {
-  "/api/rooms/route": "app/api/rooms/route.js",
   "/check-attendance/page": "app/check-attendance/page.js",
   "/check-attendance/charts/comparison/page": "app/check-attendance/charts/comparison/page.js",
   "/page": "app/page.js",
