@@ -359,6 +359,7 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
 
               {page === "charts-health" ? (
               <div className="grid gap-6">
+                <ChartTabs page={page} />
                 <SectionSelector
                   sections={sections}
                   selectedSectionId={selectedSectionId}
@@ -375,6 +376,7 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
               ) : null}
               {page === "charts-comparison" ? (
               <div className="grid gap-6">
+                <ChartTabs page={page} />
                 <SectionSelector
                   sections={sections}
                   selectedSectionId={selectedSectionId}
@@ -442,6 +444,40 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
         />
       ) : null}
     </main>
+  );
+}
+
+function ChartTabs({ page }: { page: "charts-health" | "charts-comparison" }) {
+  const tabs = [
+    {
+      href: "/check-attendance/charts/health",
+      label: "Attendance health",
+      icon: GaugeCircle,
+      active: page === "charts-health"
+    },
+    {
+      href: "/check-attendance/charts/comparison",
+      label: "Subject comparison",
+      icon: BarChart3,
+      active: page === "charts-comparison"
+    }
+  ];
+
+  return (
+    <div className="flex flex-col gap-2 rounded-xl border border-slate-200 bg-white p-2 shadow-sm sm:w-fit sm:flex-row">
+      {tabs.map(({ href, label, icon: Icon, active }) => (
+        <Link
+          key={href}
+          href={href}
+          className={`inline-flex h-11 items-center justify-center gap-2 rounded-lg px-4 text-sm font-semibold transition ${
+            active ? "bg-slate-950 text-white" : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
+          }`}
+        >
+          <Icon size={17} />
+          {label}
+        </Link>
+      ))}
+    </div>
   );
 }
 
