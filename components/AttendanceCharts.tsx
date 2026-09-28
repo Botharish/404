@@ -25,7 +25,7 @@ export default function AttendanceCharts({ summaries, view = "health" }: Props) 
   return (
     <section className="grid gap-6">
       {view === "health" ? (
-      <div className="flex min-h-[620px] flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="flex min-h-[460px] flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 lg:min-h-[620px]">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm font-medium text-slate-500">
             <PieChart size={18} />
@@ -87,7 +87,7 @@ export default function AttendanceCharts({ summaries, view = "health" }: Props) 
       ) : null}
 
       {view === "comparison" ? (
-      <div className="flex min-h-[620px] flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="flex min-h-[460px] flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 lg:min-h-[620px]">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm font-medium text-slate-500">
             <BarChart3 size={18} />

@@ -97,14 +97,14 @@ export default function AttendanceAdvisor({ summaries, open, onOpenChange: setOp
     <>
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-5 right-5 z-40 inline-flex h-14 items-center gap-2 rounded-full bg-slate-950 px-5 font-semibold text-white shadow-xl transition hover:bg-slate-800"
+        className="fixed bottom-4 right-4 z-40 inline-flex h-12 items-center gap-2 rounded-full bg-slate-950 px-4 text-sm font-semibold text-white shadow-xl transition hover:bg-slate-800 sm:bottom-5 sm:right-5 sm:h-14 sm:px-5 sm:text-base"
       >
         <MessageCircle size={20} />
         Advisor
       </button>
 
       {open ? (
-        <div className="fixed bottom-24 right-5 z-50 flex h-[520px] w-[min(380px,calc(100vw-2.5rem))] flex-col rounded-xl border border-slate-200 bg-white shadow-2xl">
+        <div className="fixed inset-x-3 bottom-20 z-50 flex h-[min(520px,calc(100vh-6rem))] flex-col rounded-xl border border-slate-200 bg-white shadow-2xl sm:inset-x-auto sm:bottom-24 sm:right-5 sm:w-[min(380px,calc(100vw-2.5rem))]">
           <div className="flex items-center justify-between border-b border-slate-200 p-4">
             <div className="flex items-center gap-2">
               <div className="grid h-9 w-9 place-items-center rounded-lg bg-slate-950 text-white">
