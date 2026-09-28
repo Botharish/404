@@ -30,7 +30,7 @@ export default function LeaveSimulator({ summaries }: Props) {
   }, [medicalClasses, odClasses, summaries]);
 
   return (
-    <section className="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm">
+    <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
       <div className="flex items-center gap-2 text-sm font-semibold text-slate-500">
         <CalendarMinus size={18} />
         OD and medical leave simulator
@@ -89,7 +89,7 @@ function LeaveControl({
   onChange: (value: number) => void;
 }) {
   return (
-    <label className="rounded-[8px] border border-slate-200 bg-slate-50 p-4">
+    <label className="rounded-lg border border-slate-200 bg-slate-50 p-4">
       <div className="flex items-center justify-between gap-3">
         <span className="flex items-center gap-2 text-sm font-semibold text-slate-800">
           <Icon size={17} />
@@ -101,7 +101,7 @@ function LeaveControl({
           max={max}
           value={Math.min(value, max)}
           onChange={(event) => onChange(Math.min(max, Math.max(0, Number(event.target.value))))}
-          className="h-10 w-24 rounded-[8px] border border-slate-200 bg-white px-3 text-right font-semibold text-slate-950 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+          className="h-10 w-24 rounded-lg border border-slate-200 bg-white px-3 text-right font-semibold text-slate-950 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
         />
       </div>
       <input
@@ -118,7 +118,7 @@ function LeaveControl({
 
 function LeaveStat({ label, value }: { label: string; value: string | number }) {
   return (
-    <div className="rounded-[8px] border border-slate-200 bg-slate-50 p-4">
+    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
       <p className="text-xs font-medium text-slate-500">{label}</p>
       <p className="mt-2 text-2xl font-bold text-slate-950">{value}</p>
     </div>

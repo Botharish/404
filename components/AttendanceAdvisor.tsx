@@ -104,10 +104,10 @@ export default function AttendanceAdvisor({ summaries, open, onOpenChange: setOp
       </button>
 
       {open ? (
-        <div className="fixed bottom-24 right-5 z-50 flex h-[520px] w-[min(380px,calc(100vw-2.5rem))] flex-col rounded-[12px] border border-slate-200 bg-white shadow-2xl">
+        <div className="fixed bottom-24 right-5 z-50 flex h-[520px] w-[min(380px,calc(100vw-2.5rem))] flex-col rounded-xl border border-slate-200 bg-white shadow-2xl">
           <div className="flex items-center justify-between border-b border-slate-200 p-4">
             <div className="flex items-center gap-2">
-              <div className="grid h-9 w-9 place-items-center rounded-[8px] bg-slate-950 text-white">
+              <div className="grid h-9 w-9 place-items-center rounded-lg bg-slate-950 text-white">
                 <Bot size={18} />
               </div>
               <div>
@@ -115,7 +115,7 @@ export default function AttendanceAdvisor({ summaries, open, onOpenChange: setOp
                 <p className="text-xs text-slate-500">Uses your dashboard data</p>
               </div>
             </div>
-            <button onClick={() => setOpen(false)} className="rounded-[8px] p-2 text-slate-500 hover:bg-slate-100">
+            <button onClick={() => setOpen(false)} className="rounded-lg p-2 text-slate-500 hover:bg-slate-100">
               <X size={18} />
             </button>
           </div>
@@ -124,7 +124,7 @@ export default function AttendanceAdvisor({ summaries, open, onOpenChange: setOp
             {messages.map((message, index) => (
               <div
                 key={`${message.role}-${index}`}
-                className={`rounded-[8px] p-3 text-sm leading-6 ${
+                className={`rounded-lg p-3 text-sm leading-6 ${
                   message.role === "student"
                     ? "ml-8 bg-blue-600 text-white"
                     : "mr-8 border border-slate-200 bg-slate-50 text-slate-700"
@@ -140,9 +140,9 @@ export default function AttendanceAdvisor({ summaries, open, onOpenChange: setOp
               value={input}
               onChange={(event) => setInput(event.target.value)}
               placeholder="Ask: If I take 3 sick leave days..."
-              className="h-11 min-w-0 flex-1 rounded-[8px] border border-slate-200 px-3 text-sm outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+              className="h-11 min-w-0 flex-1 rounded-lg border border-slate-200 px-3 text-sm outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
             />
-            <button className="grid h-11 w-11 place-items-center rounded-[8px] bg-slate-950 text-white hover:bg-slate-800">
+            <button className="grid h-11 w-11 place-items-center rounded-lg bg-slate-950 text-white hover:bg-slate-800">
               <Send size={17} />
             </button>
           </form>

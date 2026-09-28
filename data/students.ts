@@ -19,8 +19,6 @@ const names = [
   "Sneha K"
 ];
 
-export const datasetFileCount = 8;
-
 function buildStudent(sectionId: string, sectionIndex: number, studentIndex: number): Student {
   const section = sections[sectionIndex];
   const uniqueCodes = Array.from(new Map(section.timetable.map((entry) => [entry.subjectCode, entry])).values());

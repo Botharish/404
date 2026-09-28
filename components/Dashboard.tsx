@@ -25,11 +25,13 @@ import LeaveSimulator from "@/components/LeaveSimulator";
 import PredictionCard from "@/components/PredictionCard";
 import QuickMenu from "@/components/QuickMenu";
 import SectionSelector from "@/components/SectionSelector";
+import Footer from "@/components/Footer";
 import SubjectCard from "@/components/SubjectCard";
 import SubjectPicker from "@/components/SubjectPicker";
 import WarningCard from "@/components/WarningCard";
 import WhatIfSimulator from "@/components/WhatIfSimulator";
 import { sections, semester } from "@/data/timetables";
+import { studentsForSection } from "@/data/students";
 import { buildSubjectSummaries, clampDateKey, percent, todayKey } from "@/lib/attendance";
 
 type NavItem = { id: string; label: string; icon: LucideIcon; href: string };
@@ -52,6 +54,7 @@ type DashboardProps = {
 
 export default function Dashboard({ mode = "landing", page = "overview" }: DashboardProps) {
   const [selectedSectionId, setSelectedSectionId] = useState(sections[0].id);
+  const [selectedStudentId, setSelectedStudentId] = useState("");
   const [currentDate, setCurrentDate] = useState(semester.start);
   const [futureDate, setFutureDate] = useState(semester.end);
   const [attendedBySubject, setAttendedBySubject] = useState<Record<string, number>>({});
@@ -68,10 +71,18 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
     () => sections.find((section) => section.id === selectedSectionId) ?? sections[0],
     [selectedSectionId]
   );
+  const sectionStudents = useMemo(() => studentsForSection(selectedSection.id), [selectedSection.id]);
+  const selectedStudent = sectionStudents.find((student) => student.id === selectedStudentId) ?? sectionStudents[0];
+
+  useEffect(() => {
+    if (selectedStudent && selectedStudent.id !== selectedStudentId) {
+      setSelectedStudentId(selectedStudent.id);
+    }
+  }, [selectedStudent, selectedStudentId]);
 
   const summaries = useMemo(
-    () => buildSubjectSummaries(selectedSection, attendedBySubject, currentDate, futureDate),
-    [attendedBySubject, currentDate, futureDate, selectedSection]
+    () => buildSubjectSummaries(selectedSection, { ...selectedStudent?.attendedBySubject, ...attendedBySubject }, currentDate, futureDate),
+    [attendedBySubject, currentDate, futureDate, selectedSection, selectedStudent]
   );
 
   const selectedSubject = summaries.find((subject) => subject.subjectCode === selectedSubjectCode) ?? summaries[0];
@@ -95,6 +106,12 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
   function changeSection(sectionId: string) {
     setSelectedSectionId(sectionId);
     setAttendedBySubject({});
+    setSelectedStudentId("");
+  }
+
+  function changeStudent(studentId: string) {
+    setSelectedStudentId(studentId);
+    setAttendedBySubject({});
   }
 
   return (
@@ -104,9 +121,9 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
       <section className="relative overflow-hidden border-b border-slate-200 bg-white">
         <div className="absolute inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.12),transparent_55%)]" />
         <div className="relative mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
-          <nav className="flex items-center justify-between rounded-[8px] border border-slate-200 bg-white/90 px-4 py-3 shadow-sm backdrop-blur">
+          <nav className="flex items-center justify-between rounded-lg border border-slate-200 bg-white/90 px-4 py-3 shadow-sm backdrop-blur">
             <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-[8px] bg-slate-950 text-white">
+              <div className="grid h-10 w-10 place-items-center rounded-lg bg-slate-950 text-white">
                 <CalendarCheck2 size={20} />
               </div>
               <div>
@@ -116,7 +133,7 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
             </div>
             <Link
               href="/check-attendance"
-              className="hidden items-center gap-2 rounded-[8px] bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 sm:inline-flex"
+              className="hidden items-center gap-2 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 sm:inline-flex"
             >
               Check attendance
               <ArrowRight size={16} />
@@ -124,7 +141,7 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
             <Link
               href="/check-attendance"
               aria-label="Open attendance checker"
-              className="grid h-10 w-10 place-items-center rounded-[8px] border border-slate-200 text-slate-700 md:hidden"
+              className="grid h-10 w-10 place-items-center rounded-lg border border-slate-200 text-slate-700 md:hidden"
             >
               <Menu size={20} />
             </Link>
@@ -151,18 +168,18 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
             </div>
 
             <div id="preview">
-              <div className="rounded-[10px] border border-slate-200 bg-white p-5 shadow-2xl shadow-slate-200/70">
+              <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-2xl shadow-slate-200/70">
                 <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                   <div>
                     <p className="text-sm font-semibold text-slate-500">Live preview</p>
                     <h2 className="mt-1 text-2xl font-bold tracking-tight">Attendance health</h2>
                   </div>
-                  <div className="grid h-11 w-11 place-items-center rounded-[8px] bg-blue-600 text-white">
+                  <div className="grid h-11 w-11 place-items-center rounded-lg bg-blue-600 text-white">
                     <GaugeCircle size={22} />
                   </div>
                 </div>
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-[8px] border border-slate-200 bg-slate-50 p-4 sm:col-span-2">
+                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 sm:col-span-2">
                     <p className="text-sm font-medium text-slate-500">Overall attendance</p>
                     <div className="mt-3 flex items-end justify-between gap-4">
                       <p className="text-5xl font-bold tracking-tight">84.6%</p>
@@ -198,6 +215,7 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
           </div>
         </div>
       </section>
+      <Footer />
       </>
       ) : null}
 
@@ -251,7 +269,8 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
           </div>
         </aside>
 
-        <div className="min-w-0 px-4 py-6 sm:px-6 lg:px-10">
+        <div className="flex min-w-0 flex-col">
+        <div className="flex-1 px-4 py-6 sm:px-6 lg:px-10">
           <div className="mx-auto max-w-6xl">
             <header className="flex items-start justify-between gap-4 border-b border-slate-200 pb-6">
               <div className="min-w-0">
@@ -263,9 +282,12 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
               <QuickMenu
                 sections={sections}
                 selectedSectionId={selectedSectionId}
+                students={sectionStudents}
+                selectedStudentId={selectedStudent?.id}
                 futureDate={futureDate}
                 navItems={quickMenuItems}
                 onSectionChange={changeSection}
+                onStudentChange={changeStudent}
                 onFutureDateChange={(date) => setFutureDate(clampDateKey(date))}
                 onOpenAdvisor={() => setAdvisorOpen(true)}
                 onReset={() => setAttendedBySubject({})}
@@ -313,15 +335,6 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
             <div className="grid gap-6 py-6">
               {page === "overview" ? (
               <div className="grid gap-6">
-                <SectionSelector
-                  sections={sections}
-                  selectedSectionId={selectedSectionId}
-                  currentDate={currentDate}
-                  futureDate={futureDate}
-                  onSectionChange={changeSection}
-                  onFutureDateChange={(date) => setFutureDate(clampDateKey(date))}
-                />
-
                 <WarningCard visible={hasCritical} maxPossible={maxOverall} />
 
                 <div className="grid gap-6 xl:grid-cols-2">
@@ -332,12 +345,40 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
               ) : null}
 
               {page === "charts-health" ? (
-              <div>
+              <div className="grid gap-6">
+                <div className="flex justify-end">
+                  <ChartMenu page={page} />
+                </div>
+                <SectionSelector
+                  sections={sections}
+                  selectedSectionId={selectedSectionId}
+                  students={sectionStudents}
+                  selectedStudentId={selectedStudent?.id}
+                  currentDate={currentDate}
+                  futureDate={futureDate}
+                  onSectionChange={changeSection}
+                  onStudentChange={changeStudent}
+                  onFutureDateChange={(date) => setFutureDate(clampDateKey(date))}
+                />
                 <AttendanceCharts summaries={summaries} view="health" />
               </div>
               ) : null}
               {page === "charts-comparison" ? (
-              <div>
+              <div className="grid gap-6">
+                <div className="flex justify-end">
+                  <ChartMenu page={page} />
+                </div>
+                <SectionSelector
+                  sections={sections}
+                  selectedSectionId={selectedSectionId}
+                  students={sectionStudents}
+                  selectedStudentId={selectedStudent?.id}
+                  currentDate={currentDate}
+                  futureDate={futureDate}
+                  onSectionChange={changeSection}
+                  onStudentChange={changeStudent}
+                  onFutureDateChange={(date) => setFutureDate(clampDateKey(date))}
+                />
                 <AttendanceCharts summaries={summaries} view="comparison" />
               </div>
               ) : null}
@@ -354,6 +395,17 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
 
               {page === "subjects" ? (
               <section>
+                <SectionSelector
+                  sections={sections}
+                  selectedSectionId={selectedSectionId}
+                  students={sectionStudents}
+                  selectedStudentId={selectedStudent?.id}
+                  currentDate={currentDate}
+                  futureDate={futureDate}
+                  onSectionChange={changeSection}
+                  onStudentChange={changeStudent}
+                  onFutureDateChange={(date) => setFutureDate(clampDateKey(date))}
+                />
                 <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-slate-500">Subject-wise prediction · {selectedSection.name}</p>
@@ -369,6 +421,7 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
             </div>
           </div>
         </div>
+        </div>
       </div>
       </section>
       ) : null}
@@ -379,9 +432,51 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
   );
 }
 
+function ChartMenu({ page }: { page: "charts-health" | "charts-comparison" }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        className="inline-flex h-10 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3.5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
+      >
+        <BarChart3 size={16} />
+        Charts
+        <ChevronDown size={16} className={`text-slate-400 transition ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open ? (
+        <div className="absolute right-0 top-12 z-50 w-64 overflow-hidden rounded-xl border border-slate-200 bg-white p-2 shadow-2xl shadow-slate-300/50">
+          <Link
+            href="/check-attendance/charts/health"
+            onClick={() => setOpen(false)}
+            className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
+              page === "charts-health" ? "bg-slate-950 text-white" : "text-slate-700 hover:bg-slate-100"
+            }`}
+          >
+            <GaugeCircle size={16} />
+            Attendance health
+          </Link>
+          <Link
+            href="/check-attendance/charts/comparison"
+            onClick={() => setOpen(false)}
+            className={`mt-1 flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
+              page === "charts-comparison" ? "bg-slate-950 text-white" : "text-slate-700 hover:bg-slate-100"
+            }`}
+          >
+            <BarChart3 size={16} />
+            Subject comparison
+          </Link>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 function MiniStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-[8px] border border-slate-200 bg-white p-3 shadow-sm">
+    <div className="rounded-lg border border-slate-200 bg-white p-3 shadow-sm">
       <p className="text-xs font-medium text-slate-500">{label}</p>
       <p className="mt-1 text-xl font-bold text-slate-950">{value}</p>
     </div>
@@ -398,7 +493,7 @@ function PreviewTile({
   value: string;
 }) {
   return (
-    <div className="rounded-[8px] border border-slate-200 bg-white p-4">
+    <div className="rounded-lg border border-slate-200 bg-white p-4">
       <div className="flex items-center gap-2 text-sm font-medium text-slate-500">
         <Icon size={16} />
         {label}
@@ -418,8 +513,8 @@ function Feature({
   text: string;
 }) {
   return (
-    <div className="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="grid h-11 w-11 place-items-center rounded-[8px] bg-slate-950 text-white">
+    <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="grid h-11 w-11 place-items-center rounded-lg bg-slate-950 text-white">
         <Icon size={20} />
       </div>
       <h3 className="mt-4 text-lg font-bold text-slate-950">{title}</h3>

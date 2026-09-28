@@ -35,7 +35,7 @@ export default function WhatIfSimulator({ summaries }: Props) {
   }, [nextClasses, summaries, totalRemaining, willAttend]);
 
   return (
-    <section className="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm">
+    <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
       <div className="flex items-center gap-2 text-sm font-semibold text-slate-500">
         <SlidersHorizontal size={18} />
         What-if simulator
@@ -50,17 +50,17 @@ export default function WhatIfSimulator({ summaries }: Props) {
       </div>
 
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
-        <div className="rounded-[8px] border border-slate-200 bg-slate-50 p-4">
+        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
           <p className="text-xs font-medium text-slate-500">Predicted attendance</p>
           <p className="mt-2 text-3xl font-bold text-slate-950">{result.projectedPercent.toFixed(1)}%</p>
         </div>
-        <div className="rounded-[8px] border border-slate-200 bg-slate-50 p-4">
+        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
           <p className="text-xs font-medium text-slate-500">Status</p>
           <p className="mt-2 text-lg font-bold text-slate-950">
             {result.above75 ? "Above 75%" : "Below 75%"} / {result.reaches90 ? "Reaches 90%" : "Below 90%"}
           </p>
         </div>
-        <div className="rounded-[8px] border border-slate-200 bg-slate-50 p-4 sm:col-span-2">
+        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 sm:col-span-2">
           <p className="text-xs font-medium text-slate-500">Classes you can still miss for 75%</p>
           <p className="mt-2 text-3xl font-bold text-slate-950">{result.finalCanMiss75}</p>
         </div>

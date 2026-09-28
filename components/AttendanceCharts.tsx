@@ -40,7 +40,7 @@ export default function AttendanceCharts({ summaries, view = "health" }: Props) 
           </span>
         </div>
 
-        <div className="flex flex-1 flex-col items-center justify-center gap-4 py-8">
+        <div className="flex flex-1 flex-col items-center justify-center gap-4 pb-8 pt-28">
           <div className="relative h-56 w-56">
             <svg viewBox="0 0 160 160" className="h-full w-full -rotate-90">
               <circle cx="80" cy="80" r={radius} fill="none" stroke="#e2e8f0" strokeWidth="12" />

@@ -32,7 +32,7 @@ export default function SectionSelector({
 }: Props) {
   return (
     <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="grid gap-5 md:grid-cols-4">
+      <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
         <Field label="Section" hint="Timetable loads automatically">
           <select value={selectedSectionId} onChange={(event) => onSectionChange(event.target.value)} className={fieldClass}>
             {sections.map((section) => (
@@ -82,10 +82,12 @@ export default function SectionSelector({
 
 function Field({ label, hint, children }: { label: string; hint: string; children: React.ReactNode }) {
   return (
-    <label className="grid gap-2">
-      <span className="text-sm font-medium text-slate-700">{label}</span>
+    <label className="grid min-w-0 content-start gap-2">
+      <span className="text-sm font-medium leading-5 text-slate-700">{label}</span>
       {children}
-      <span className="text-xs text-slate-500">{hint}</span>
+      <span title={hint} className="truncate text-xs leading-4 text-slate-500">
+        {hint}
+      </span>
     </label>
   );
 }
