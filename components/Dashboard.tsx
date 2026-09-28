@@ -8,8 +8,9 @@ import {
   BookOpen,
   CalendarCheck2,
   CheckCircle2,
-  ChevronDown,
   ClipboardList,
+  ChevronsLeft,
+  ChevronsRight,
   GaugeCircle,
   LayoutDashboard,
   LineChart,
@@ -23,12 +24,10 @@ import AttendanceCard from "@/components/AttendanceCard";
 import AttendanceCharts from "@/components/AttendanceCharts";
 import LeaveSimulator from "@/components/LeaveSimulator";
 import PredictionCard from "@/components/PredictionCard";
-import QuickMenu from "@/components/QuickMenu";
 import SectionSelector from "@/components/SectionSelector";
 import Footer from "@/components/Footer";
 import SubjectCard from "@/components/SubjectCard";
 import SubjectPicker from "@/components/SubjectPicker";
-import WarningCard from "@/components/WarningCard";
 import WhatIfSimulator from "@/components/WhatIfSimulator";
 import { sections, semester } from "@/data/timetables";
 import { studentsForSection } from "@/data/students";
@@ -43,10 +42,6 @@ const navItems: NavItem[] = [
   { id: "subjects", label: "Subjects", icon: BookOpen, href: "/check-attendance/subjects" }
 ];
 
-const quickMenuItems: NavItem[] = [
-  { id: "what-if", label: "What-if", icon: LineChart, href: "/check-attendance/what-if" }
-];
-
 type DashboardProps = {
   mode?: "landing" | "dashboard";
   page?: "overview" | "charts-health" | "charts-comparison" | "leave" | "what-if" | "subjects";
@@ -59,8 +54,8 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
   const [futureDate, setFutureDate] = useState(semester.end);
   const [attendedBySubject, setAttendedBySubject] = useState<Record<string, number>>({});
   const [advisorOpen, setAdvisorOpen] = useState(false);
-  const [chartMenuOpen, setChartMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [selectedSubjectCode, setSelectedSubjectCode] = useState("");
   useEffect(() => {
     const browserToday = todayKey();
@@ -91,8 +86,6 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
   const overallConducted = summaries.reduce((total, subject) => total + subject.conducted, 0);
   const overallAttended = summaries.reduce((total, subject) => total + subject.attended, 0);
   const overallRemaining = summaries.reduce((total, subject) => total + subject.remaining, 0);
-  const maxOverall = percent(overallAttended + overallRemaining, overallConducted + overallRemaining);
-  const hasCritical = maxOverall < 75 || summaries.some((subject) => subject.status === "critical");
 
   function updateAttended(subjectCode: string, value: number) {
     const subject = summaries.find((item) => item.subjectCode === subjectCode);
@@ -222,23 +215,40 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
 
       {mode === "dashboard" ? (
       <section id="check-attendance">
-      <div className="grid min-h-screen lg:grid-cols-[260px_minmax(0,1fr)]">
+      <div className={`grid min-h-screen transition-[grid-template-columns] duration-300 ${
+        sidebarCollapsed ? "lg:grid-cols-[88px_minmax(0,1fr)]" : "lg:grid-cols-[260px_minmax(0,1fr)]"
+      }`}>
         <aside className="hidden border-r border-slate-200 bg-white lg:block">
           <div className="sticky top-0 flex h-screen flex-col px-5 py-6">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-lg bg-slate-950 text-white">
-                <CalendarCheck2 size={20} />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-slate-950">Attendance</p>
-                <p className="text-xs text-slate-500">Predictor Suite</p>
-              </div>
-            </Link>
+            <div className="flex items-start justify-between gap-2">
+              <Link href="/" className="flex min-w-0 items-center gap-3">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-slate-950 text-white">
+                  <CalendarCheck2 size={20} />
+                </div>
+                {!sidebarCollapsed ? (
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-semibold text-slate-950">Attendance</p>
+                    <p className="truncate text-xs text-slate-500">Predictor Suite</p>
+                  </div>
+                ) : null}
+              </Link>
+              <button
+                type="button"
+                aria-label={sidebarCollapsed ? "Expand sidebar" : "Minimize sidebar"}
+                onClick={() => setSidebarCollapsed((value) => !value)}
+                className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:bg-slate-50 hover:text-slate-950"
+              >
+                {sidebarCollapsed ? <ChevronsRight size={17} /> : <ChevronsLeft size={17} />}
+              </button>
+            </div>
             <nav className="mt-8 grid gap-1 text-sm font-medium">
               {navItems.map(({ id, label, icon: Icon, href }) => (
                 <Link
                   key={id}
-                  className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${
+                  title={sidebarCollapsed ? label : undefined}
+                  className={`flex items-center rounded-lg px-3 py-2.5 text-left transition ${
+                    sidebarCollapsed ? "justify-center" : "gap-3"
+                  } ${
                     (id === "charts" ? page === "charts-health" || page === "charts-comparison" : page === id)
                       ? "bg-slate-950 text-white"
                       : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
@@ -246,18 +256,22 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
                   href={href}
                 >
                   <Icon size={18} />
-                  {label}
+                  {!sidebarCollapsed ? label : null}
                 </Link>
               ))}
               <button
                 type="button"
                 onClick={() => setAdvisorOpen(true)}
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-left text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                title={sidebarCollapsed ? "Advisor" : undefined}
+                className={`flex items-center rounded-lg px-3 py-2.5 text-left text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 ${
+                  sidebarCollapsed ? "justify-center" : "gap-3"
+                }`}
               >
                 <MessageCircle size={18} />
-                Advisor
+                {!sidebarCollapsed ? "Advisor" : null}
               </button>
             </nav>
+            {!sidebarCollapsed ? (
             <div className="mt-auto rounded-xl border border-slate-200 bg-slate-50 p-4">
               <div className="flex items-center gap-2 text-sm font-semibold text-slate-900">
                 <ShieldCheck size={17} />
@@ -267,6 +281,7 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
                 Uses real dates, weekdays, holidays, and remaining classes for every subject.
               </p>
             </div>
+            ) : null}
           </div>
         </aside>
 
@@ -291,8 +306,7 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
                 >
                   <Menu size={17} />
                   Menu
-                  <ChevronDown size={15} className={`text-slate-400 transition ${mobileMenuOpen ? "rotate-180" : ""}`} />
-                </button>
+                  </button>
                 {mobileMenuOpen ? (
                   <div className="absolute right-0 top-12 z-50 w-64 rounded-xl border border-slate-200 bg-white p-2 shadow-2xl shadow-slate-300/50">
                     {navItems.map(({ id, label, icon: Icon, href }) => (
@@ -331,65 +345,11 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
                 <h1 className="mt-1 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Attendance Predictor</h1>
                 <p className="mt-2 text-base text-slate-500">Know before you miss. Plan attendance with clean, subject-wise forecasts.</p>
               </div>
-              {page === "leave" ? (
-              <QuickMenu
-                sections={sections}
-                selectedSectionId={selectedSectionId}
-                students={sectionStudents}
-                selectedStudentId={selectedStudent?.id}
-                futureDate={futureDate}
-                navItems={quickMenuItems}
-                onSectionChange={changeSection}
-                onStudentChange={changeStudent}
-                onFutureDateChange={(date) => setFutureDate(clampDateKey(date))}
-                onOpenAdvisor={() => setAdvisorOpen(true)}
-                onReset={() => setAttendedBySubject({})}
-              />
-              ) : null}
-              {(page === "charts-health" || page === "charts-comparison") ? (
-                <div className="relative">
-                  <button
-                    type="button"
-                    onClick={() => setChartMenuOpen((value) => !value)}
-                    className="inline-flex h-10 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3.5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
-                  >
-                    <BarChart3 size={16} />
-                    Menu
-                    <ChevronDown size={16} className={`text-slate-400 transition ${chartMenuOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {chartMenuOpen ? (
-                    <div className="absolute right-0 top-12 z-50 w-64 overflow-hidden rounded-xl border border-slate-200 bg-white p-2 shadow-2xl shadow-slate-300/50">
-                      <Link
-                        href="/check-attendance/charts/health"
-                        onClick={() => setChartMenuOpen(false)}
-                        className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
-                          page === "charts-health" ? "bg-slate-950 text-white" : "text-slate-700 hover:bg-slate-100"
-                        }`}
-                      >
-                        <GaugeCircle size={16} />
-                        Attendance health
-                      </Link>
-                      <Link
-                        href="/check-attendance/charts/comparison"
-                        onClick={() => setChartMenuOpen(false)}
-                        className={`mt-1 flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
-                          page === "charts-comparison" ? "bg-slate-950 text-white" : "text-slate-700 hover:bg-slate-100"
-                        }`}
-                      >
-                        <BarChart3 size={16} />
-                        Subject comparison
-                      </Link>
-                    </div>
-                  ) : null}
-                </div>
-              ) : null}
             </header>
 
             <div className="grid gap-6 py-6">
               {page === "overview" ? (
               <div className="grid gap-6">
-                <WarningCard visible={hasCritical} maxPossible={maxOverall} />
-
                 <div className="grid gap-6 xl:grid-cols-2">
                   <AttendanceCard summaries={summaries} />
                   <PredictionCard summaries={summaries} currentDate={currentDate} futureDate={futureDate} />
@@ -399,9 +359,6 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
 
               {page === "charts-health" ? (
               <div className="grid gap-6">
-                <div className="flex justify-end">
-                  <ChartMenu page={page} />
-                </div>
                 <SectionSelector
                   sections={sections}
                   selectedSectionId={selectedSectionId}
@@ -418,9 +375,6 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
               ) : null}
               {page === "charts-comparison" ? (
               <div className="grid gap-6">
-                <div className="flex justify-end">
-                  <ChartMenu page={page} />
-                </div>
                 <SectionSelector
                   sections={sections}
                   selectedSectionId={selectedSectionId}
@@ -479,51 +433,15 @@ export default function Dashboard({ mode = "landing", page = "overview" }: Dashb
       </section>
       ) : null}
       {mode === "dashboard" ? (
-        <AttendanceAdvisor summaries={summaries} open={advisorOpen} onOpenChange={setAdvisorOpen} />
+        <AttendanceAdvisor
+          currentDate={currentDate}
+          futureDate={futureDate}
+          open={advisorOpen}
+          onOpenChange={setAdvisorOpen}
+          sections={sections}
+        />
       ) : null}
     </main>
-  );
-}
-
-function ChartMenu({ page }: { page: "charts-health" | "charts-comparison" }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="relative">
-      <button
-        type="button"
-        onClick={() => setOpen((value) => !value)}
-        className="inline-flex h-10 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3.5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
-      >
-        <BarChart3 size={16} />
-        Charts
-        <ChevronDown size={16} className={`text-slate-400 transition ${open ? "rotate-180" : ""}`} />
-      </button>
-      {open ? (
-        <div className="absolute right-0 top-12 z-50 w-64 overflow-hidden rounded-xl border border-slate-200 bg-white p-2 shadow-2xl shadow-slate-300/50">
-          <Link
-            href="/check-attendance/charts/health"
-            onClick={() => setOpen(false)}
-            className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
-              page === "charts-health" ? "bg-slate-950 text-white" : "text-slate-700 hover:bg-slate-100"
-            }`}
-          >
-            <GaugeCircle size={16} />
-            Attendance health
-          </Link>
-          <Link
-            href="/check-attendance/charts/comparison"
-            onClick={() => setOpen(false)}
-            className={`mt-1 flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
-              page === "charts-comparison" ? "bg-slate-950 text-white" : "text-slate-700 hover:bg-slate-100"
-            }`}
-          >
-            <BarChart3 size={16} />
-            Subject comparison
-          </Link>
-        </div>
-      ) : null}
-    </div>
   );
 }
 

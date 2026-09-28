@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
-import { BriefcaseMedical, CalendarMinus } from "lucide-react";
+import { BriefcaseMedical, CalendarMinus, LineChart } from "lucide-react";
 import { SubjectSummary, percent } from "@/lib/attendance";
 
 type Props = {
@@ -40,13 +41,22 @@ export default function LeaveSimulator({ summaries }: Props) {
           <h2 className="text-2xl font-bold tracking-tight text-slate-950">Plan leave days before taking them</h2>
           <p className="mt-1 text-sm text-slate-500">Enter how many upcoming classes will be OD or medical leave.</p>
         </div>
-        <span
-          className={`rounded-full px-3 py-1 text-sm font-semibold ${
-            result.safe ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"
-          }`}
-        >
-          {result.safe ? "Still above 75%" : "Drops below 75%"}
-        </span>
+        <div className="flex flex-wrap items-center gap-2">
+          <Link
+            href="/check-attendance/what-if"
+            className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
+          >
+            <LineChart size={16} />
+            What-if
+          </Link>
+          <span
+            className={`rounded-full px-3 py-1 text-sm font-semibold ${
+              result.safe ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"
+            }`}
+          >
+            {result.safe ? "Still above 75%" : "Drops below 75%"}
+          </span>
+        </div>
       </div>
 
       <div className="mt-5 grid gap-5 md:grid-cols-2">

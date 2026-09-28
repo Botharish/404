@@ -69,7 +69,7 @@ export default function SubjectCard({ summary, onAttendedChange, detailed = fals
         </label>
       </div>
 
-      <div className={`mt-auto grid grid-cols-2 gap-2 pt-5 text-sm ${detailed ? "sm:grid-cols-3" : ""}`}>
+      <div className={`grid grid-cols-2 gap-2 text-sm ${detailed ? "mt-6 sm:grid-cols-3" : "mt-auto pt-5"}`}>
         <Metric label="Conducted" value={summary.conducted} />
         <Metric label="Remaining" value={summary.remaining} />
         <Metric label="Need for 75%" value={summary.required75 > summary.remaining ? "Impossible" : summary.required75} />
