@@ -1,0 +1,105 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/check-attendance",
+      "regex": "^/check\\-attendance(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/check\\-attendance(?:/)?$"
+    },
+    {
+      "page": "/check-attendance/charts",
+      "regex": "^/check\\-attendance/charts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/check\\-attendance/charts(?:/)?$"
+    },
+    {
+      "page": "/check-attendance/charts/comparison",
+      "regex": "^/check\\-attendance/charts/comparison(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/check\\-attendance/charts/comparison(?:/)?$"
+    },
+    {
+      "page": "/check-attendance/charts/health",
+      "regex": "^/check\\-attendance/charts/health(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/check\\-attendance/charts/health(?:/)?$"
+    },
+    {
+      "page": "/check-attendance/leave",
+      "regex": "^/check\\-attendance/leave(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/check\\-attendance/leave(?:/)?$"
+    },
+    {
+      "page": "/check-attendance/subjects",
+      "regex": "^/check\\-attendance/subjects(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/check\\-attendance/subjects(?:/)?$"
+    },
+    {
+      "page": "/check-attendance/what-if",
+      "regex": "^/check\\-attendance/what\\-if(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/check\\-attendance/what\\-if(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

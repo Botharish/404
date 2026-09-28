@@ -1,0 +1,12 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/_global-error/page": "/_global-error",
+  "/check-attendance/charts/comparison/page": "/check-attendance/charts/comparison",
+  "/check-attendance/charts/health/page": "/check-attendance/charts/health",
+  "/check-attendance/charts/page": "/check-attendance/charts",
+  "/check-attendance/leave/page": "/check-attendance/leave",
+  "/check-attendance/page": "/check-attendance",
+  "/check-attendance/subjects/page": "/check-attendance/subjects",
+  "/check-attendance/what-if/page": "/check-attendance/what-if",
+  "/page": "/"
+}
