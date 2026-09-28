@@ -77,24 +77,115 @@ export default function AttendanceAdvisor({ sections, currentDate, futureDate, o
     };
   }, [summaries]);
 
+  function leaveProjection(leaveClasses: number, subject = summaries[0]) {
+    const leave = Math.min(Math.max(0, leaveClasses), subject.remaining);
+    const finalPercent = percent(subject.attended + Math.max(0, subject.remaining - leave), subject.conducted + subject.remaining);
+    return {
+      leave,
+      finalPercent,
+      safe75: finalPercent >= 75,
+      safe90: finalPercent >= 90
+    };
+  }
+
+  function overallLeaveProjection(leaveClasses: number) {
+    const leave = Math.min(Math.max(0, leaveClasses), overall.remaining);
+    const finalPercent = percent(overall.attended + Math.max(0, overall.remaining - leave), overall.conducted + overall.remaining);
+    return {
+      leave,
+      finalPercent,
+      safe75: finalPercent >= 75,
+      safe90: finalPercent >= 90
+    };
+  }
+
+  function maxLeaveForTarget(targetPercent: number, subject = summaries[0]) {
+    let answer = 0;
+    for (let leave = 0; leave <= subject.remaining; leave += 1) {
+      const projection = leaveProjection(leave, subject);
+      if (projection.finalPercent >= targetPercent) {
+        answer = leave;
+      } else {
+        break;
+      }
+    }
+    return answer;
+  }
+
+  function maxOverallLeaveForTarget(targetPercent: number) {
+    let answer = 0;
+    for (let leave = 0; leave <= overall.remaining; leave += 1) {
+      const projection = overallLeaveProjection(leave);
+      if (projection.finalPercent >= targetPercent) {
+        answer = leave;
+      } else {
+        break;
+      }
+    }
+    return answer;
+  }
+
+  function targetLine(finalPercent: number, targetPercent: number) {
+    const gap = Math.abs(finalPercent - targetPercent).toFixed(1);
+    if (finalPercent >= targetPercent) {
+      return `This is ${gap}% above the ${targetPercent}% target.`;
+    }
+    return `This is ${gap}% below the ${targetPercent}% target.`;
+  }
+
   function answer(question: string) {
     const normalized = question.toLowerCase();
+    if (!summaries.length) {
+      return "No attendance data is available for this selection yet. Choose another class or student and try again.";
+    }
+
     const subject = summaries.find((item) =>
       normalized.includes(item.subjectName.toLowerCase()) || normalized.includes(item.subjectCode.toLowerCase())
     );
-    const leaveMatch = normalized.match(/(\d+)\s*(-|\s)?\s*(day|days|class|classes)/);
+    const leaveMatch = normalized.match(/(\d+)\s*(-|\s)?\s*(day|days|class|classes|leave|leaves|od|medical)/);
     const leaveCount = leaveMatch ? Number(leaveMatch[1]) : 0;
+    const asksLeave = /(leave|leaves|od|medical|sick|miss|skip|absent)/.test(normalized);
+    const asksMaximum = /(how many|max|maximum|can i miss|can i skip|can i take)/.test(normalized);
+    const asksPercent = /(percentage|percent|attendance|drop|final|become|result)/.test(normalized);
+    const targetPercent = normalized.includes("90") ? 90 : 75;
     const target = subject ?? null;
 
+    if (target && asksLeave && leaveCount) {
+      const projection = leaveProjection(leaveCount, target);
+      return `Final percentage: ${projection.finalPercent.toFixed(1)}% in ${target.subjectName}. ${targetLine(projection.finalPercent, 75)} ${
+        projection.safe75 ? "So this leave is safe for 75%." : "So this leave is not safe for 75%."
+      } Current percentage is ${target.currentPercent.toFixed(1)}%; if every remaining class is attended, maximum possible is ${target.maxPossible.toFixed(1)}%.`;
+    }
+
+    if (target && asksLeave && asksMaximum) {
+      const canLeave75 = maxLeaveForTarget(75, target);
+      const canLeave90 = maxLeaveForTarget(90, target);
+      const percentAt75Limit = leaveProjection(canLeave75, target).finalPercent;
+      const percentAt90Limit = leaveProjection(canLeave90, target).finalPercent;
+      return `${target.subjectName}: ${selectedStudent?.name ?? "this student"} can take ${canLeave75} leave/missed classes and still finish at ${percentAt75Limit.toFixed(1)}% for the 75% target. For the 90% target, safe leave count is ${canLeave90}, ending at ${percentAt90Limit.toFixed(1)}%. Current percentage is ${target.currentPercent.toFixed(1)}%.`;
+    }
+
+    if (asksLeave && leaveCount) {
+      const projection = overallLeaveProjection(leaveCount);
+      return `Final overall percentage: ${projection.finalPercent.toFixed(1)}%. ${targetLine(projection.finalPercent, 75)} ${
+        projection.safe75 ? "So this leave is safe for 75%." : "So this leave is risky for 75%."
+      } Current overall percentage is ${overall.current.toFixed(1)}%; if every remaining class is attended, maximum possible is ${overall.max.toFixed(1)}%.`;
+    }
+
+    if (asksLeave && asksMaximum) {
+      const canLeave75 = maxOverallLeaveForTarget(75);
+      const canLeave90 = maxOverallLeaveForTarget(90);
+      const percentAt75Limit = overallLeaveProjection(canLeave75).finalPercent;
+      const percentAt90Limit = overallLeaveProjection(canLeave90).finalPercent;
+      return `${selectedStudent?.name ?? "This student"} can take ${canLeave75} leave/missed classes overall and still finish at ${percentAt75Limit.toFixed(1)}% for the 75% target. For the 90% target, safe leave count is ${canLeave90}, ending at ${percentAt90Limit.toFixed(1)}%. Current overall percentage is ${overall.current.toFixed(1)}%; maximum possible is ${overall.max.toFixed(1)}%.`;
+    }
+
     if (target) {
-      const afterLeave = leaveCount
-        ? percent(target.attended + Math.max(0, target.remaining - leaveCount), target.conducted + target.remaining)
-        : target.maxPossible;
       return `${selectedStudent?.name ?? "This student"} in ${selectedSection?.name ?? "this class"}: ${target.subjectName} is currently ${target.currentPercent.toFixed(1)}%. You need ${
         target.required75 > target.remaining ? "more classes than remain" : `${target.required75} more classes`
       } for 75% and ${
         target.required90 > target.remaining ? "more classes than remain" : `${target.required90} more classes`
-      } for 90%. ${leaveCount ? `If you miss ${leaveCount} upcoming classes, the best final result becomes ${afterLeave.toFixed(1)}%.` : `If you attend all remaining classes, the maximum possible is ${target.maxPossible.toFixed(1)}%.`}`;
+      } for 90%. If you attend all remaining classes, the maximum possible is ${target.maxPossible.toFixed(1)}%.`;
     }
 
     if (normalized.includes("75") || normalized.includes("safe") || normalized.includes("detention")) {
@@ -108,13 +199,12 @@ export default function AttendanceAdvisor({ sections, currentDate, futureDate, o
     if (normalized.includes("90")) {
       const hard = summaries.filter((item) => item.required90 > item.remaining);
       return hard.length
-        ? `90% is not reachable in ${hard.map((item) => item.subjectName).join(", ")} with the currently remaining classes.`
-        : "90% is still reachable if you follow the required class counts shown on each subject card.";
+        ? `Current overall percentage is ${overall.current.toFixed(1)}%, and maximum possible is ${overall.max.toFixed(1)}%. 90% is not reachable in ${hard.map((item) => item.subjectName).join(", ")} with the currently remaining classes.`
+        : `Current overall percentage is ${overall.current.toFixed(1)}%, and maximum possible is ${overall.max.toFixed(1)}%. 90% is reachable if you follow the required class counts shown on each subject card.`;
     }
 
-    if (leaveCount) {
-      const finalPercent = percent(overall.attended + Math.max(0, overall.remaining - leaveCount), overall.conducted + overall.remaining);
-      return `For ${selectedStudent?.name ?? "this student"}, if ${leaveCount} upcoming classes are missed, the best overall final attendance becomes ${finalPercent.toFixed(1)}%. ${finalPercent >= 75 ? "That stays above 75%, but subject-wise checks still matter." : "That drops below 75%, so it is risky."}`;
+    if (asksPercent) {
+      return `${selectedStudent?.name ?? "This student"} has ${overall.current.toFixed(1)}% overall right now. If every remaining class is attended, the final overall attendance can reach ${overall.max.toFixed(1)}%. To finish at ${targetPercent}%, check the subjects needing more classes first.`;
     }
 
     const weakest = [...summaries].sort((a, b) => a.currentPercent - b.currentPercent)[0];
